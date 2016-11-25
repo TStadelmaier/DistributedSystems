@@ -10,9 +10,9 @@ import java.rmi.server.UnicastRemoteObject;
  * Change this class (implementation/signature/...) as necessary to complete the assignment.
  * You may also add some fields or methods.
  */
-public class CalculationImplFactory extends UnicastRemoteObject implements ICalculationFactory {
+public class CalculationImplFactory implements ICalculationFactory {
 
-public CalculationImplFactory () throws RemoteException{
+public CalculationImplFactory () {
     super();
 }
 

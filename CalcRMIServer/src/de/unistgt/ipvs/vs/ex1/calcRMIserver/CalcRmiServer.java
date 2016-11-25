@@ -35,26 +35,33 @@ public class CalcRmiServer extends Thread {
 		}*/
 
 		Registry reg = null;
-		/*try {
+		try {
+
+			//reg = LocateRegistry.getRegistry();
+
+			reg = LocateRegistry.createRegistry(1099);
+
+
 			ICalculationFactory factory = new CalculationImplFactory();
 			ICalculationFactory stub = (ICalculationFactory) UnicastRemoteObject.exportObject(factory,0);
 
-			reg = LocateRegistry.getRegistry(1099);
-			reg.rebind(objName, stub);
+			reg.rebind("//" +regHost+"/"+objName, stub);
+
+
 
 		} catch (Exception ex) {
 			System.err.println("SessionFactory exception");
 			ex.printStackTrace();
-		}*/
+		}
 
-		try {
+		/*try {
 			ICalculationFactory factory = new CalculationImplFactory();
 
 			java.rmi.Naming.rebind("//localhost:2345/sessionFactory", factory);
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 
 

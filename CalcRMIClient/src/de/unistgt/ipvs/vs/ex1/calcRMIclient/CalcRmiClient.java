@@ -39,8 +39,10 @@ public class CalcRmiClient {
 
 		try {
 			String name = "sessionFactory";
-			Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-			ICalculationFactory sessionFactory = (ICalculationFactory) registry.lookup("//localhost:2345/sessionFactory");
+
+			Registry registry = LocateRegistry.getRegistry();
+
+			ICalculationFactory sessionFactory = (ICalculationFactory) registry.lookup(url);
 
 			//ICalculationFactory sessionFactory = (ICalculationFactory) java.rmi.Naming.lookup(name);
 
@@ -66,26 +68,32 @@ public class CalcRmiClient {
 				case ADD:
 					try {
 						calc.add(num);
+
 					} catch (RemoteException e) {
 						e.printStackTrace();
 					}
+
 					break;
 				case SUB:
 					try {
 						calc.subtract(num);
+
 					} catch (RemoteException e) {
 						e.printStackTrace();
 					}
+
 					break;
 				case MUL:
 					try {
 						calc.multiply(num);
+
 					} catch (RemoteException e) {
 						e.printStackTrace();
 					}
+
 					break;
 			}
 		}
-		return false;
+		return true;
 	}
 }

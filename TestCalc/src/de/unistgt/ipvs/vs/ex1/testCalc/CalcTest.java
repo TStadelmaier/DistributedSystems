@@ -29,7 +29,7 @@ public class CalcTest {
 		//} else if (argv[0].equals("RMI")) {
 			rmiTest(srvIP);
 		//} else {
-			System.err.println("Wrong usage: CalcTest <'RMI'|'SCKT'>");
+			//System.err.println("Wrong usage: CalcTest <'RMI'|'SCKT'>");
 			return;
 		//}
 	}
